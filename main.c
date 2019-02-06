@@ -213,12 +213,12 @@ int main() {
         }
         // +2 because we need the new char and the null-terminator, which is never included in word_len
         if (word_len + 2 > arr_len) {
-            alpha_t *pNew = realloc(pWord, arr_len * 2);
+            alpha_t *pNew = realloc(pWord, arr_len * 2 * sizeof(alpha_t));
             assert(pNew != NULL);
             pWord = pNew;
             arr_len *= 2;
         }
-        pWord[word_len++] = (char) c;
+        pWord[word_len++] = (alpha_t) c;
     }
     pWord[word_len] = '\0';
 
